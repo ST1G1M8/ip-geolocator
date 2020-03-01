@@ -22,6 +22,12 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<mainClass>geolocator.GeoLocator</mainClass>
 	</properties>
+	<distributionManagement>
+		<site>
+			<id>shrek</id>
+			<url>scp://@shrek.unideb.hu:2222/home/stigimate/public_html/${project.artifactId}</url>
+		</site>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -131,6 +137,18 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.8.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-ssh</artifactId>
+						<version>3.3.4</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
